@@ -35,14 +35,14 @@ public class UserService {
         return product;
     }
 
-    public User updateUser(Integer id, User product){
+    public User updateUser(Integer id, User user){
         if(userRepository.findById(id).isPresent()){
             User auxUser =  userRepository.findById(id).get();
-            auxUser.setName(product.getName());
-            auxUser.setEmail(product.getEmail());
-            auxUser.setTelephone(product.getTelephone());
-            auxUser.setActive(product.isActive());
-            auxUser.setType(product.getType());
+            auxUser.setName(user.getName());
+            auxUser.setEmail(user.getEmail());
+            auxUser.setTelephone(user.getTelephone());
+            auxUser.setActive(user.isActive());
+            auxUser.setType(user.getType());
             return userRepository.save(auxUser);
         }else{
             return null;
